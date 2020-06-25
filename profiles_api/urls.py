@@ -6,10 +6,10 @@ from  profiles_api import views
 
 
 router = DefaultRouter()
-router.register('hello-viewwset',views.HelloViewSet,base_name = 'hello-viewwset')
-
+router.register('hello-viewwset',views.HelloViewSet,base_name = 'hello-viewwset') #### SERVER ===> :8000/api
+router.register('profile',views.UserProfileViewSet)   #### server ===> :8000/api/profile
 urlpatterns =[
-    path('hello-view/', views.HelloApiiView.as_view()),  
-    #### as_view ===>standard function that we call to convert api view class to rendered   
+    path('hello-view/', views.HelloApiiView.as_view()),  ######## server ===> :8000/api/hello-view
+    #### as_view ===>standard function that we call for convert api view class to rendered   
     path('', include(router.urls)),
 ]
